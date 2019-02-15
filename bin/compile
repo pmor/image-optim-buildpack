@@ -20,15 +20,6 @@ mkdir -p ${BUILD_DIR}/${VENDOR_DIR}
 
 cp -v * ${BUILD_DIR}/${VENDOR_DIR} | indent
 
-dpkg -l |grep libjpeg62 > /dev/null
-if [ $? -eq 0 ]
-then
-  cp -v jpegoptim/jpegoptim-cedar ${BUILD_DIR}/${VENDOR_DIR}/jpegoptim | indent
-else
-  cp -v jpegoptim/jpegoptim-cedar14 ${BUILD_DIR}/${VENDOR_DIR}/jpegoptim | indent
-fi
-
-
 export PATH="$PATH:$HOME/vendor/image-optim"
 
 cd $WORKING_DIR
@@ -39,10 +30,13 @@ cd /tmp/codon/vendor/bin
 
 ln -s ${BUILD_DIR}/${VENDOR_DIR}/advpng advpng
 ln -s ${BUILD_DIR}/${VENDOR_DIR}/gifsicle gifsicle
+ln -s ${BUILD_DIR}/${VENDOR_DIR}/jhead jhead
+ln -s ${BUILD_DIR}/${VENDOR_DIR}/jpeg-recompress jpeg-recompress
 ln -s ${BUILD_DIR}/${VENDOR_DIR}/jpegoptim jpegoptim
 ln -s ${BUILD_DIR}/${VENDOR_DIR}/jpegtran jpegtran
 ln -s ${BUILD_DIR}/${VENDOR_DIR}/optipng optipng
 ln -s ${BUILD_DIR}/${VENDOR_DIR}/pngcrush pngcrush
+ln -s ${BUILD_DIR}/${VENDOR_DIR}/pngquant pngquant
 
 echo "-----> Adding image-optim binaries to PATH"
 
@@ -66,7 +60,11 @@ echo "-----> Image-Optim binaries version"
 
 advpng -V | head -1 | indent
 
-gifsicle --version | head -1 | indent 
+gifsicle --version | head -1 | indent
+
+jhead -V | head -1 | indent
+
+echo -n "jpeg-recompress ";jpeg-recompress -V | head -1 | indent
 
 jpegoptim -V | head -1 | indent
 
@@ -74,7 +72,9 @@ jpegtran -V /dev/null 2>&1 | head -1 | indent
 
 optipng -V | head -1 | indent
 
-pngcrush -V | sed -n 2p | indent
+pngcrush -version | sed -n 2p | indent
+
+echo -n "pngquant ";pngquant -V | head -1 | indent
 
 cd $WORKING_DIR
 
