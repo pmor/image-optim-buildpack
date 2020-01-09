@@ -10,8 +10,12 @@ Binaries in this buildpacks :
 - `gifsicle`
 - `jpegoptim`
 - `jpegtran`
+- `jhead`
+- `jpeg-recompress`
 - `optipng`
 - `pngcrush`
+- `pngquant`
+
 
 Binaries are in this git repo in `vendor/image-optim`
 
