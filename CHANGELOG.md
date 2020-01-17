@@ -1,3 +1,5 @@
+### Moved to [Github releases](https://github.com/pmor/image-optim-buildpack/releases)
+
 ### Image-Optim BuildPack 0.0.3
 
 * Add jpegoptim bin for cedar-14
