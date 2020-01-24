@@ -2,7 +2,7 @@
 
 Add binaries for image-optim on Heroku, can be used with heroku-buildpack-multi.
 
-Built-in support for [image-optim](https://github.com/toy/image_optim) gem, creation of `.image-optim.yml` config file. 
+Built-in support for [image-optim](https://github.com/toy/image_optim) gem, creation of `.image-optim.yml` config file.
 
 Binaries in this buildpacks :
 
@@ -27,4 +27,10 @@ On compilation :
 - Add config file .image-optim.yml if Gemfile present
 - Version of each binaries is displayed
 
+## Credits
 
+&copy; 2020 Pedro Moreira
+
+Forked from https://github.com/bobbus/image-optim-buildpack
+
+Released under the MIT License.
