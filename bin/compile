@@ -62,7 +62,7 @@ echo "-----> Image-Optim binaries version"
 
 /tmp/codon/vendor/bin/jhead -V | head -1 | indent
 
-echo -n "jpeg-recompress ";/tmp/codon/vendor/bin/jpeg-recompress -V | head -1 | indent
+echo -n "jpeg-recompress `/tmp/codon/vendor/bin/jpeg-recompress -V`" | head -1 | indent
 
 /tmp/codon/vendor/bin/jpegoptim -V | head -1 | indent
 
