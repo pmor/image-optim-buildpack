@@ -9,7 +9,7 @@ WORKING_DIR=$(pwd)
 VENDOR_DIR="vendor/image-optim"
 
 indent() {
-  sed -u 's/^/       /'
+  sed 's/^/       /'
 }
 
 echo "-----> Adding Item-Optim binaries"
@@ -19,8 +19,6 @@ cd $ROOT_DIR/${VENDOR_DIR}
 mkdir -p ${BUILD_DIR}/${VENDOR_DIR}
 
 cp -v * ${BUILD_DIR}/${VENDOR_DIR} | indent
-
-export PATH="$PATH:$HOME/vendor/image-optim"
 
 cd $WORKING_DIR
 
@@ -58,21 +56,21 @@ cd $WORKING_DIR
 
 echo "-----> Image-Optim binaries version"
 
-advpng -V | head -1 | indent
+/tmp/codon/vendor/bin/advpng -V | head -1 | indent
 
-gifsicle --version | head -1 | indent
+/tmp/codon/vendor/bin/gifsicle --version | head -1 | indent
 
-jhead -V | head -1 | indent
+/tmp/codon/vendor/bin/jhead -V | head -1 | indent
 
-echo -n "jpeg-recompress ";jpeg-recompress -V | head -1 | indent
+echo -n "jpeg-recompress ";/tmp/codon/vendor/bin/jpeg-recompress -V | head -1 | indent
 
-jpegoptim -V | head -1 | indent
+/tmp/codon/vendor/bin/jpegoptim -V | head -1 | indent
 
-jpegtran -V /dev/null 2>&1 | head -1 | indent
+/tmp/codon/vendor/bin/jpegtran -V /dev/null 2>&1 | head -1 | indent
 
-optipng -V | head -1 | indent
+/tmp/codon/vendor/bin/optipng -V | head -1 | indent
 
-pngcrush -version | sed -n 2p | indent
+/tmp/codon/vendor/bin/pngcrush -version 2>&1 | head -1 | indent
 
 echo -n "pngquant ";pngquant -V | head -1 | indent
 
