@@ -72,7 +72,7 @@ echo -n "jpeg-recompress `/tmp/codon/vendor/bin/jpeg-recompress -V`" | head -1 |
 
 /tmp/codon/vendor/bin/pngcrush -version 2>&1 | head -1 | indent
 
-/tmp/codon/vendor/bin/pngquant pngquant 2>&1 | head -1 | indent
+/tmp/codon/vendor/bin/pngquant 2>&1 | head -1 | indent
 
 cd $WORKING_DIR
 
